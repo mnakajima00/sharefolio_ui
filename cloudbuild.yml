@@ -2,17 +2,17 @@ steps:
   # Build Image
   - name: 'gcr.io/cloud-builders/docker'
     id: 'build-image'
-    args: ['build', '-t', '${_ARTIFACT_URL}/${_PROJECT_ID}/${FOLDER_NAME}/${_SERVICE_NAME}:$SHORT_SHA', '--file=./Dockerfile', '.']
+    args: ['build', '-t', '${_ARTIFACT_URL}/${_PROJECT_ID}/${_FOLDER_NAME}/${_SERVICE_NAME}:$SHORT_SHA', '--file=./Dockerfile', '.']
 
   # Tag Image as Latest
   - name: 'gcr.io/cloud-builders/docker'
     id: 'build-image-with-latest'
-    args: ['tag', '${_ARTIFACT_URL}/${_PROJECT_ID}/${FOLDER_NAME}/${_SERVICE_NAME}:$SHORT_SHA', '${_ARTIFACT_URL}/${_PROJECT_ID}/${FOLDER_NAME}/${_SERVICE_NAME}:latest']
+    args: ['tag', '${_ARTIFACT_URL}/${_PROJECT_ID}/${_FOLDER_NAME}/${_SERVICE_NAME}:$SHORT_SHA', '${_ARTIFACT_URL}/${_PROJECT_ID}/${FOLDER_NAME}/${_SERVICE_NAME}:latest']
 
   # Push Image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
     id: 'push-to-artifact-registry'
-    args: ['push', '${_ARTIFACT_URL}/${_PROJECT_ID}/${FOLDER_NAME}/${_SERVICE_NAME}:latest']
+    args: ['push', '${_ARTIFACT_URL}/${_PROJECT_ID}/${_FOLDER_NAME}/${_SERVICE_NAME}:latest']
 
   # Cloud Deploy
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -24,7 +24,7 @@ steps:
       --delivery-pipeline=${_DELIVERY_PIPELINE_NAME}
       --region=${REGION}
       --source=./
-      --images=${_ARTIFACT_URL}/${_PROJECT_ID}/${FOLDER_NAME}/${_SERVICE_NAME}:latest
+      --images=${_ARTIFACT_URL}/${_PROJECT_ID}/${_FOLDER_NAME}/${_SERVICE_NAME}:latest
 
 substitutions:
   _SERVICE_NAME: sharefolio-ui
