@@ -7,7 +7,7 @@ steps:
   # Tag Image as Latest
   - name: 'gcr.io/cloud-builders/docker'
     id: 'build-image-with-latest'
-    args: ['tag', '${_ARTIFACT_URL}/${_PROJECT_ID}/${_FOLDER_NAME}/${_SERVICE_NAME}:$SHORT_SHA', '${_ARTIFACT_URL}/${_PROJECT_ID}/${FOLDER_NAME}/${_SERVICE_NAME}:latest']
+    args: ['tag', '${_ARTIFACT_URL}/${_PROJECT_ID}/${_FOLDER_NAME}/${_SERVICE_NAME}:$SHORT_SHA', '${_ARTIFACT_URL}/${_PROJECT_ID}/${_FOLDER_NAME}/${_SERVICE_NAME}:latest']
 
   # Push Image to Artifact Registry
   - name: 'gcr.io/cloud-builders/docker'
