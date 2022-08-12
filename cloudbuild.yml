@@ -24,7 +24,7 @@ steps:
       --delivery-pipeline=${_DELIVERY_PIPELINE_NAME}
       --region=${_REGION}
       --source=./
-      --images=${_ARTIFACT_URL}/${_PROJECT_ID}/${_FOLDER_NAME}/${_SERVICE_NAME}:latest
+      --images=${_SERVICE_NAME}=${_ARTIFACT_URL}/${_PROJECT_ID}/${_FOLDER_NAME}/${_SERVICE_NAME}:latest
 
 substitutions:
   _SERVICE_NAME: sharefolio-ui
