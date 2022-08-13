@@ -1,6 +1,6 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
-const theme = createTheme({
+let theme = createTheme({
     palette: {
         primary: {
             main: '#00214d'
@@ -24,7 +24,7 @@ const theme = createTheme({
             styleOverrides: {
                 root: {
                     boxShadow: '0px 5px 10px 0px rgba(0,0,0,0.1)',
-                    padding: '0.5em',
+                    padding: '0.2em',
                     // borderBottomLeftRadius: '2em',
                     // borderBottomRightRadius: '2em'
                 }
@@ -32,5 +32,7 @@ const theme = createTheme({
         }
     }
 });
+
+theme = responsiveFontSizes(theme);
 
 export default theme;
