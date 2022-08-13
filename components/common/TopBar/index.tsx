@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 
 /* ICONS */
-import { IoSettingsOutline, IoPersonOutline,  IoMenu, IoLogOutOutline, IoNotificationsOutline, IoMailOutline } from 'react-icons/io5';
+import { IoSettingsOutline, IoPersonOutline, IoLogOutOutline, IoNotificationsOutline, IoMailOutline } from 'react-icons/io5';
 
 const TopBar = () => {
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
